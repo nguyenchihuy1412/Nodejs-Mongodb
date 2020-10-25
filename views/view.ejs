@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <script>
+    function yesOrNo(mess) {
+      if (window.confirm(mess) === true) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div style="background-color: gold" class="jumbotron text-center">
+      <h1 class="display-3">Customer Phone</h1>
+      <p class="lead">View Telephone Directory</p>
+      <hr class="my-2" />
+      <a style="margin-top: 60px; border-radius: 10px" href="/" class="btn btn-primary text-center btn-block">Home
+        Page</a>
+    </div>
+    <table class="table table-active table-bordered table-hover table-danger">
+      <thead class="thead-inverse text-center">
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <% nura.forEach(function(view) { %>
+        <tr>
+          <td scope="row"><%= view.name %></td>
+          <td><%= view.phone %></td>
+          <td class="text-center">
+            <a href="/edit/<%= view._id %>"><i class="fa fa-edit" style="font-size: 20px; color: goldenrod"></i></a>
+            <span>/</span>
+            <a onclick="return yesOrNo('Are you sure?');" href="/remove/<%= view._id %>"><i class="fa fa-remove"
+                style="font-size: 20px; color: goldenrod"></i></a>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
